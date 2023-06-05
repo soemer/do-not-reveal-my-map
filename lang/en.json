@@ -1,0 +1,10 @@
+{
+	"do-not-reveal-my-map": {
+		"Settings": {
+			"DoNotRevealMyMap": {
+				"Name": "Do not reveal map on moving through wall",
+				"Hint": "Cancels the animation of a token if it would be moved through a wall to prevent showing parts of a map a player should not be able to see."
+			}
+		}
+	}
+}
