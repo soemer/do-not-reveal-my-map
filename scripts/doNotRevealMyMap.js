@@ -21,7 +21,8 @@ function registerSettings() {
 
 function registerAnimationCancelCheck() {
 	Hooks.on('preUpdateToken', (token, changes, data) => {
-		if (!(changes.x || changes.y) || data.animate === false)
+		if ((changes?.x == token?.x && changes?.y == token?.y) ||
+			data.animate === false)
 			return;
 
 		let target = {
