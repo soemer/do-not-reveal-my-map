@@ -25,11 +25,8 @@ function registerAnimationCancelCheck() {
 			data.animate === false)
 			return;
 
-		let target = {
-			x: changes?.x ?? token.x,
-			y: changes?.y ?? token.y
-		};
-		if (game.settings.get(MODULE_ID, PROPERTY_MODULE_ENABLED) && token._object.checkCollision(target))
+		let target = token.getCenter(changes?.x ?? token.x, changes?.y ?? token.y);
+		if (game.settings.get(MODULE_ID, PROPERTY_MODULE_ENABLED) && token._original.checkCollision(target))
 			data.animate = false;
 	});
 }
