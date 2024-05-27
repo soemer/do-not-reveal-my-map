@@ -21,11 +21,11 @@ function registerSettings() {
 
 function registerAnimationCancelCheck() {
 	Hooks.on('preUpdateToken', (token, changes, data) => {
-		if ((changes?.x == token?.x && changes?.y == token?.y) ||
+		if ((changes?.x === token?.x && changes?.y === token?.y) ||
 			data.animate === false)
 			return;
 
-		let target = token._object.getCenter(changes?.x ?? token.x, changes?.y ?? token.y);
+		const target = token._object.getCenterPoint({x: changes?.x ?? token.x, y: changes?.y ?? token.y});
 		if (game.settings.get(MODULE_ID, PROPERTY_MODULE_ENABLED) && token._object.checkCollision(target))
 			data.animate = false;
 	});
